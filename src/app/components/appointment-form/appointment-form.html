@@ -1,0 +1,59 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Book Appointment</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="appointmentForm" (ngSubmit)="submit()">
+      <mat-form-field appearance="outline" *ngIf="isReceptionist">
+        <mat-label>Select Patient</mat-label>
+        <mat-select formControlName="patientId">
+          <mat-option *ngFor="let patient of patients" [value]="patient.id">
+            {{ patient.name }} ({{ patient.email }})
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Select Doctor</mat-label>
+        <mat-select formControlName="doctorId">
+          <mat-option *ngFor="let doctor of doctors" [value]="doctor.id">
+            {{ doctor.name }} - {{ doctor.specialization }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" *ngIf="selectedDoctor">
+        <mat-label>Specialization</mat-label>
+        <input matInput [value]="selectedDoctor.specialization" readonly>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" *ngIf="selectedDoctor">
+        <mat-label>Fee</mat-label>
+        <input matInput [value]="'₹' + selectedDoctor.fee" readonly>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Appointment Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date" [min]="minDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Time Slot</mat-label>
+        <mat-select formControlName="time">
+          <mat-option *ngFor="let slot of timeSlots" [value]="slot">{{ slot }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Notes (Optional)</mat-label>
+        <textarea matInput formControlName="notes" rows="3"></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="appointmentForm.invalid">
+        Book Appointment
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

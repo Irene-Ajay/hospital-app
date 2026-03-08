@@ -1,0 +1,28 @@
+<mat-toolbar color="primary" class="navbar">
+  <a routerLink="/home" class="brand">
+    <mat-icon>local_hospital</mat-icon>
+    <span>MediCare</span>
+  </a>
+  <span class="spacer"></span>
+  <nav class="nav-links">
+    <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
+    <a mat-button routerLink="/doctors" routerLinkActive="active">Doctors</a>
+    <ng-container *ngIf="currentUser$ | async as user; else guestMenu">
+      <a mat-button routerLink="/appointments" routerLinkActive="active" *ngIf="user.role !== 'doctor'">Book Appointment</a>
+      <a mat-button routerLink="/dashboard" routerLinkActive="active" *ngIf="user.role === 'patient' || user.role === 'receptionist'">Patient's Dashboard</a>
+      <a mat-button routerLink="/doctor-dashboard" routerLinkActive="active" *ngIf="user.role === 'doctor' || user.role === 'receptionist'">Doctor's Dashboard</a>
+      <button mat-button [matMenuTriggerFor]="userMenu">
+        <mat-icon>account_circle</mat-icon> {{ user.name }}
+      </button>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon> Logout
+        </button>
+      </mat-menu>
+    </ng-container>
+    <ng-template #guestMenu>
+      <a mat-button routerLink="/login" routerLinkActive="active">Login</a>
+      <a mat-raised-button color="accent" routerLink="/register">Register</a>
+    </ng-template>
+  </nav>
+</mat-toolbar>

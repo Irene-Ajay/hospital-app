@@ -25,6 +25,7 @@
               }
             ],
             "styles": [
+              "src/material-theme.scss",
               "src/styles.css"
             ]
           },
@@ -49,8 +50,7 @@
               "extractLicenses": false,
               "sourceMap": true
             }
-          },
-          "defaultConfiguration": "production"
+          }
         },
         "serve": {
           "builder": "@angular/build:dev-server",

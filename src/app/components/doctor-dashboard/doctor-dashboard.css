@@ -1,0 +1,26 @@
+.container { padding: 32px 40px; }
+h1 { color: #3f51b5; }
+.full-width { width: 100%; }
+.status-badge { padding: 4px 12px; border-radius: 12px; color: white; font-size: 0.8rem; font-weight: bold; text-transform: capitalize; }
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.summary-card {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #3f51b5;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #666;
+}

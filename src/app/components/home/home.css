@@ -1,0 +1,13 @@
+.hero {
+  background: linear-gradient(135deg, #3f51b5 0%, #283593 100%);
+  color: white; padding: 80px 40px; text-align: center;
+}
+.hero h1 { font-size: 3rem; margin-bottom: 16px; }
+.hero p { font-size: 1.2rem; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.features, .specializations { padding: 60px 40px; text-align: center; }
+.features h2, .specializations h2 { font-size: 2rem; margin-bottom: 40px; color: #3f51b5; }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
+.feature-card { text-align: center; padding: 24px; }
+.feature-card mat-icon { font-size: 48px; width: 48px; height: 48px; }
+.feature-card h3 { margin: 12px 0 8px; }
+.chip-list { display: flex; justify-content: center; }

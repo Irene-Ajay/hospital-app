@@ -1,0 +1,29 @@
+<div class="hero">
+  <div class="hero-content">
+    <h1>Your Health, Our Priority</h1>
+    <p>Book appointments with top specialists, manage your medical records, and stay on top of your health — all in one place.</p>
+    <button mat-raised-button color="accent" (click)="bookNow()">Find a Doctor</button>
+  </div>
+</div>
+
+<section class="features">
+  <h2>Why Choose MediCare?</h2>
+  <div class="feature-grid">
+    <mat-card *ngFor="let f of features" class="feature-card">
+      <mat-card-content>
+        <mat-icon color="primary">{{ f.icon }}</mat-icon>
+        <h3>{{ f.title }}</h3>
+        <p>{{ f.desc }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>
+
+<section class="specializations">
+  <h2>Our Specializations</h2>
+  <div class="chip-list">
+    <mat-chip-set>
+      <mat-chip *ngFor="let s of specializations">{{ s }}</mat-chip>
+    </mat-chip-set>
+  </div>
+</section>
