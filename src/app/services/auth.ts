@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   private currentUserSubject = new BehaviorSubject<AuthUser | null>(null);
   currentUser$ = this.currentUserSubject.asObservable();
-  private patientsUrl = 'http://localhost:3000/patients';
+  private patientsUrl = 'https://my-json-server.typicode.com/Irene-Ajay/MediCare_Hospital_Management_System/patients';
 
   constructor(private http: HttpClient, private router: Router) {
     const stored = localStorage.getItem('currentUser');

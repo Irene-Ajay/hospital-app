@@ -5,7 +5,7 @@ import { Doctor } from '../models/doctor.model';
 
 @Injectable({ providedIn: 'root' })
 export class DoctorService {
-  private apiUrl = 'http://localhost:3000/doctors';
+  private apiUrl = 'https://my-json-server.typicode.com/Irene-Ajay/MediCare_Hospital_Management_System/doctors';
   constructor(private http: HttpClient) {}
 
   getDoctors(): Observable<Doctor[]> {
