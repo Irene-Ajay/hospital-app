@@ -1,5 +1,5 @@
 export interface Doctor {
-  id: number;
+  id: string;
   name: string;
   specialization: string;
   availability: string[];

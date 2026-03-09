@@ -71,15 +71,15 @@ export class AppointmentFormComponent implements OnInit {
       this.doctors = doctors;
       const id = this.route.snapshot.params['doctorId'];
       if (id) {
-        this.appointmentForm.patchValue({ doctorId: +id });
-        this.onDoctorChange(+id);
+        this.appointmentForm.patchValue({ doctorId: id });
+        this.onDoctorChange(id);
       }
     });
 
     this.appointmentForm.get('doctorId')?.valueChanges.subscribe(id => this.onDoctorChange(id));
   }
 
-  onDoctorChange(id: number): void {
+  onDoctorChange(id: string): void {
     this.selectedDoctor = this.doctors.find(d => d.id === id) || null;
   }
 

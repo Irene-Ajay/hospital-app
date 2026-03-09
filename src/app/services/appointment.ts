@@ -5,18 +5,18 @@ import { Appointment } from '../models/appointment.model';
 
 @Injectable({ providedIn: 'root' })
 export class AppointmentService {
-  private apiUrl = 'https://my-json-server.typicode.com/Irene-Ajay/MediCare_Hospital_Management_System/appointments';
+  private apiUrl = 'http://localhost:3000/appointments';
   constructor(private http: HttpClient) {}
 
   getAppointments(): Observable<Appointment[]> {
     return this.http.get<Appointment[]>(this.apiUrl);
   }
 
-  getByPatient(patientId: number): Observable<Appointment[]> {
+  getByPatient(patientId: string): Observable<Appointment[]> {
     return this.http.get<Appointment[]>(`${this.apiUrl}?patientId=${patientId}`);
   }
 
-  getByDoctor(doctorId: number): Observable<Appointment[]> {
+  getByDoctor(doctorId: string): Observable<Appointment[]> {
     return this.http.get<Appointment[]>(`${this.apiUrl}?doctorId=${doctorId}`);
   }
 
@@ -24,11 +24,11 @@ export class AppointmentService {
     return this.http.post<Appointment>(this.apiUrl, appointment);
   }
 
-  updateStatus(id: number, status: string): Observable<Appointment> {
+  updateStatus(id: string, status: string): Observable<Appointment> {
     return this.http.patch<Appointment>(`${this.apiUrl}/${id}`, { status });
   }
 
-  cancel(id: number): Observable<Appointment> {
+  cancel(id: string): Observable<Appointment> {
     return this.http.patch<Appointment>(`${this.apiUrl}/${id}`, { status: 'cancelled' });
   }
 }

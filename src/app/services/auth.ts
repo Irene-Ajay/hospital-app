@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   private currentUserSubject = new BehaviorSubject<AuthUser | null>(null);
   currentUser$ = this.currentUserSubject.asObservable();
-  private patientsUrl = 'https://my-json-server.typicode.com/Irene-Ajay/MediCare_Hospital_Management_System/patients';
+  private patientsUrl = 'http://localhost:3000/patients';
 
   constructor(private http: HttpClient, private router: Router) {
     const stored = localStorage.getItem('currentUser');
@@ -23,7 +23,7 @@ export class AuthService {
 
   login(email: string, password: string): Observable<AuthUser | null> {
     if (email && password) {
-      const user: AuthUser = { id: 999, name: 'Receptionist', email: email, role: 'receptionist' };
+      const user: AuthUser = { id: '999', name: 'Receptionist', email: email, role: 'receptionist' };
       localStorage.setItem('currentUser', JSON.stringify(user));
       this.currentUserSubject.next(user);
       return of(user);

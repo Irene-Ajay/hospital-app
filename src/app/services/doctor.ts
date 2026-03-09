@@ -5,14 +5,14 @@ import { Doctor } from '../models/doctor.model';
 
 @Injectable({ providedIn: 'root' })
 export class DoctorService {
-  private apiUrl = 'https://my-json-server.typicode.com/Irene-Ajay/MediCare_Hospital_Management_System/doctors';
+  private apiUrl = 'http://localhost:3000/doctors';
   constructor(private http: HttpClient) {}
 
   getDoctors(): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(this.apiUrl);
   }
 
-  getDoctorById(id: number): Observable<Doctor> {
+  getDoctorById(id: string): Observable<Doctor> {
     return this.http.get<Doctor>(`${this.apiUrl}/${id}`);
   }
 }

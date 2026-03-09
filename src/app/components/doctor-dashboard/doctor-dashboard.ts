@@ -56,7 +56,7 @@ export class DoctorDashboardComponent implements OnInit {
     this.completedAppointments = this.appointments.filter(a => a.status === 'completed').length;
   }
 
-  updateStatus(id: number, status: string): void {
+  updateStatus(id: string, status: string): void {
     this.appointmentService.updateStatus(id, status).subscribe(() => {
       this.appointments = this.appointments.map(a =>
         a.id === id ? { ...a, status: status as any } : a

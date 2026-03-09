@@ -1,7 +1,7 @@
 export type UserRole = 'patient' | 'doctor' | 'receptionist';
 
 export interface AuthUser {
-  id: number;
+  id: string;
   name: string;
   email: string;
   role: UserRole;

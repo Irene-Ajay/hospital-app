@@ -1,10 +1,14 @@
 {
   "doctors": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Dr. Rajesh Sharma",
       "specialization": "Cardiology",
-      "availability": ["Monday", "Wednesday", "Friday"],
+      "availability": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
       "rating": 4.8,
       "fee": 1500,
       "email": "rajesh.sharma@hospital.com",
@@ -13,10 +17,14 @@
       "password": "doctor123"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Dr. Priya Patel",
       "specialization": "Neurology",
-      "availability": ["Tuesday", "Thursday", "Saturday"],
+      "availability": [
+        "Tuesday",
+        "Thursday",
+        "Saturday"
+      ],
       "rating": 4.9,
       "fee": 2000,
       "email": "priya.patel@hospital.com",
@@ -25,10 +33,14 @@
       "password": "doctor123"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Dr. Arjun Kumar",
       "specialization": "Pediatrics",
-      "availability": ["Monday", "Tuesday", "Friday"],
+      "availability": [
+        "Monday",
+        "Tuesday",
+        "Friday"
+      ],
       "rating": 4.7,
       "fee": 1200,
       "email": "arjun.kumar@hospital.com",
@@ -37,10 +49,14 @@
       "password": "doctor123"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Dr. Meera Singh",
       "specialization": "Orthopedics",
-      "availability": ["Wednesday", "Thursday", "Saturday"],
+      "availability": [
+        "Wednesday",
+        "Thursday",
+        "Saturday"
+      ],
       "rating": 4.6,
       "fee": 1800,
       "email": "meera.singh@hospital.com",
@@ -49,10 +65,14 @@
       "password": "doctor123"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Dr. Vikram Rao",
       "specialization": "Dermatology",
-      "availability": ["Monday", "Wednesday", "Saturday"],
+      "availability": [
+        "Monday",
+        "Wednesday",
+        "Saturday"
+      ],
       "rating": 4.5,
       "fee": 1300,
       "email": "vikram.rao@hospital.com",
@@ -63,27 +83,32 @@
   ],
   "patients": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Amit Kumar",
       "email": "amit.kumar@email.com",
       "password": "password123",
       "phone": "9876543210",
       "dob": "1990-05-15",
       "bloodGroup": "O+",
-      "medicalHistory": ["Hypertension", "Diabetes Type 2"]
+      "medicalHistory": [
+        "Hypertension",
+        "Diabetes Type 2"
+      ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Priya Sharma",
       "email": "priya.sharma@email.com",
       "password": "password123",
       "phone": "9876543211",
       "dob": "1985-08-20",
       "bloodGroup": "A+",
-      "medicalHistory": ["Asthma"]
+      "medicalHistory": [
+        "Asthma"
+      ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Receptionist User",
       "email": "receptionist@hospital.com",
       "password": "reception123",
@@ -96,10 +121,10 @@
   ],
   "appointments": [
     {
-      "id": 1,
-      "patientId": 1,
+      "id": "1",
+      "patientId": "1",
       "patientName": "Amit Kumar",
-      "doctorId": 1,
+      "doctorId": "1",
       "doctorName": "Dr. Rajesh Sharma",
       "specialization": "Cardiology",
       "date": "2025-04-10",
@@ -107,6 +132,20 @@
       "status": "confirmed",
       "notes": "Regular checkup",
       "fee": 1500
+    },
+    {
+      "id": "e22a",
+      "patientId": "1",
+      "patientName": "Test Patient",
+      "doctorId": "1",
+      "doctorName": "Dr. Rajesh Sharma",
+      "specialization": "Cardiology",
+      "date": "2026-03-15",
+      "time": "10:00",
+      "status": "pending",
+      "notes": "Test appointment",
+      "fee": 1500
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

@@ -51,21 +51,33 @@ export class PatientDashboardComponent implements OnInit {
       // No patient profile for receptionist
     } else {
       this.appointmentService.getByPatient(user.id).subscribe(data => this.appointments = data);
-      this.patientService.getPatientById(user.id).subscribe(data => this.patient = data);
+      this.patientService.getPatientById(user.id).subscribe({
+        next: (data) => this.patient = data,
+        error: (err) => {
+          console.error('Error loading patient data:', err);
+          this.patient = null;
+        }
+      });
     }
   }
 
-  cancelAppointment(id: number): void {
+  cancelAppointment(id: string): void {
     const ref = this.dialog.open(ConfirmDialogComponent, {
       data: { message: 'Are you sure you want to cancel this appointment?' }
     });
     ref.afterClosed().subscribe(confirmed => {
       if (confirmed) {
-        this.appointmentService.cancel(id).subscribe(() => {
-          this.appointments = this.appointments.map(a =>
-            a.id === id ? { ...a, status: 'cancelled' as const } : a
-          );
-          this.snackBar.open('Appointment cancelled', 'Close', { duration: 3000 });
+        this.appointmentService.cancel(id).subscribe({
+          next: () => {
+            this.appointments = this.appointments.map(a =>
+              a.id === id ? { ...a, status: 'cancelled' as const } : a
+            );
+            this.snackBar.open('Appointment cancelled', 'Close', { duration: 3000 });
+          },
+          error: (err) => {
+            console.error('Error cancelling appointment:', err);
+            this.snackBar.open('Error cancelling appointment', 'Close', { duration: 3000 });
+          }
         });
       }
     });
