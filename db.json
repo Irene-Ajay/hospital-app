@@ -61,14 +61,6 @@
       "password": "doctor123"
     }
   ],
-      "availability": ["Monday", "Wednesday", "Saturday"],
-      "rating": 4.5,
-      "fee": 130,
-      "email": "aisha.rahman@hospital.com",
-      "experience": 10,
-      "image": "https://randomuser.me/api/portraits/women/23.jpg"
-    }
-  ],
   "patients": [
     {
       "id": 1,
