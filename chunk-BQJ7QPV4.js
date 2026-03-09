@@ -1,1 +1,0 @@
-import{G as o,J as i,Jb as e}from"./chunk-UGHWXL6B.js";var c=class t{constructor(r){this.http=r}apiUrl="http://localhost:3000/doctors";getDoctors(){return this.http.get(this.apiUrl)}getDoctorById(r){return this.http.get(`${this.apiUrl}/${r}`)}static \u0275fac=function(p){return new(p||t)(i(e))};static \u0275prov=o({token:t,factory:t.\u0275fac,providedIn:"root"})};export{c as a};
